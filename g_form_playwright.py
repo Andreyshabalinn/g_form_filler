@@ -63,7 +63,6 @@ def find_question_block(page, question_text: str):
 
 with sync_playwright() as p:
     browser = p.chromium.launch(
-        headless=False,
         slow_mo=300
     )
     page = browser.new_page()
@@ -173,4 +172,5 @@ with sync_playwright() as p:
     page.locator("span", has_text="Отправить").nth(0).click()
 
     time.sleep(5)
+    print("\nУспешно заполнили форму!")
     browser.close()
